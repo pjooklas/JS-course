@@ -24,3 +24,16 @@ while (sk2 < 353) {
 }
 
 console.log('Suma 2: ', suma2);
+
+
+// daugybos lentele nuo 3 iki 5
+
+let daug1 = 3;
+do {
+    let daug2 = 3;
+    do {
+        console.log(`${daug1} * ${daug2} = ${daug1 * daug2}`);
+        daug2++;
+    } while (daug2 < 6);
+    daug1++;
+} while (daug1 < 6);
