@@ -37,3 +37,12 @@ do {
     } while (daug2 < 6);
     daug1++;
 } while (daug1 < 6);
+
+
+for (let i = 1; i <= 100; i += 2) {
+    console.log(i);
+}
+
+for (let i = 100; i >= 1; i -= 3) {
+    console.log(i);
+}
