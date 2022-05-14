@@ -44,43 +44,43 @@ atspausdinti laimetoja.
 **) - komentatorius: kas 100 km turi pranesti pirmaujancios masinos pavadinima
 */
 
-let masinos = [{
-        pavadinimas: "pirma",
+const masinos = [{
+        pavadinimas: "VW Passat",
         greitis: 0,
         kelias: 0
     },
     {
-        pavadinimas: "antra",
+        pavadinimas: "Audi 80",
         greitis: 0,
         kelias: 0
     },
     {
-        pavadinimas: "trecia",
+        pavadinimas: "Zaporozietis",
         greitis: 0,
         kelias: 0
     },
     {
-        pavadinimas: "ketvirta",
+        pavadinimas: "Seat Ibiza",
         greitis: 0,
         kelias: 0
     },
     {
-        pavadinimas: "penkta",
+        pavadinimas: "BMW 525",
         greitis: 0,
         kelias: 0
     },
     {
-        pavadinimas: "sesta",
+        pavadinimas: "VW Golf",
         greitis: 0,
         kelias: 0
     },
     {
-        pavadinimas: "septinta",
+        pavadinimas: "Opel Zafira",
         greitis: 0,
         kelias: 0
     },
     {
-        pavadinimas: "astunta",
+        pavadinimas: "Volga",
         greitis: 0,
         kelias: 0
     },
@@ -126,5 +126,9 @@ do {
 const lentele = [];
 sortas(lentele);
 
-console.log(`Nugalejo ${laimetojas}`);
-console.log(lentele);
+// console.log(`Nugalejo ${laimetojas}`);
+console.log('-----------------');
+console.log('Turnyrine lentele:');
+for (let i = 0; i < lentele.length; i++) {
+    console.log(`${i+1}: ${lentele[i][0]} nuvaziavo ${lentele[i][1]}`);
+}
