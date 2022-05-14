@@ -1,29 +1,130 @@
-let staciakampis1 = {
-    ilgis: 21.34,
-    plotis: 11.47
-};
-let staciakampis2 = {
-    ilgis: 21.34,
-    plotis: 11.47
-};
+// let staciakampis1 = {
+//     ilgis: 21.34,
+//     plotis: 11.47
+// };
+// let staciakampis2 = {
+//     ilgis: 21.34,
+//     plotis: 11.47
+// };
 
-if (staciakampis1 === staciakampis2) {
-    console.log('tokie patys');
-} else {
-    console.log('skirtingi');
+// if (staciakampis1 === staciakampis2) {
+//     console.log('tokie patys');
+// } else {
+//     console.log('skirtingi');
+// }
+
+// let staciakampis3 = staciakampis1;
+
+// if (staciakampis1 === staciakampis3) {
+//     console.log('tokie patys');
+// } else {
+//     console.log('skirtingi');
+// }
+
+// staciakampis1.ilgis = 53;
+// staciakampis1['plotis'] = 5;
+
+// console.log(staciakampis1);
+// console.log(staciakampis2);
+// console.log(staciakampis3);
+
+/*
+masinu lenktynes
+startuoja 8 masinos
+kieviena masina turi tokias savybes:
+pavadinimas, greitis, kelias
+lenktynes (ciklas):
+kiekvienos iteracijos metu kievienos masinos (atskirai)
+greitis gali padideti arba sumazeti (-2 .. 10)
+masinos atbulai vaziuoti negali
+kiekvienos iteracijos metu kieviena masina pavaziuoja per tiek, koks dabar yra jos greitis
+lenktynes baigiasi, kai bent viena masina nuvaziuoja 1000 km.
+atspausdinti laimetoja.
+*) - surusiuota turnyrine lentele (pagal nuvaziuota kelia)
+**) - komentatorius: kas 100 km turi pranesti pirmaujancios masinos pavadinima
+*/
+
+let masinos = [{
+        pavadinimas: "pirma",
+        greitis: 0,
+        kelias: 0
+    },
+    {
+        pavadinimas: "antra",
+        greitis: 0,
+        kelias: 0
+    },
+    {
+        pavadinimas: "trecia",
+        greitis: 0,
+        kelias: 0
+    },
+    {
+        pavadinimas: "ketvirta",
+        greitis: 0,
+        kelias: 0
+    },
+    {
+        pavadinimas: "penkta",
+        greitis: 0,
+        kelias: 0
+    },
+    {
+        pavadinimas: "sesta",
+        greitis: 0,
+        kelias: 0
+    },
+    {
+        pavadinimas: "septinta",
+        greitis: 0,
+        kelias: 0
+    },
+    {
+        pavadinimas: "astunta",
+        greitis: 0,
+        kelias: 0
+    },
+];
+let laimetojas = false;
+let kelias = 100;
+let komentatorius = '';
+
+function sortas(masyvas) {
+    for (const masina of masinos) {
+        masyvas.push([masina.pavadinimas, masina.kelias]);
+    }
+    masyvas.sort((a, b) => {
+        return b[1] - a[1];
+    });
 }
 
-let staciakampis3 = staciakampis1;
+// vykdom lenktynas
+do {
+    for (const masina of masinos) {
+        const greitis = Math.trunc(Math.random() * 13 - 2);
+        masina.greitis += masina.greitis + greitis > 0 ? greitis : 0;
+        masina.kelias += masina.greitis;
+    }
 
-if (staciakampis1 === staciakampis3) {
-    console.log('tokie patys');
-} else {
-    console.log('skirtingi');
-}
+    // tikrina ar yra kas perzenges 100*x km
+    let laimi = [];
+    sortas(laimi);
+    if (laimi[0][1] >= kelias) {
+        komentatorius = `Nuvaziavus ${kelias}km laimi ${laimi[0][0]}`;
+        console.log(komentatorius);
+        kelias += 100;
+    }
 
-staciakampis1.ilgis = 53;
-staciakampis1['plotis'] = 5;
+    // tikrina ar yra nugaletojas
+    if (laimi[0][1] >= 1000) {
+        laimetojas = laimi[0][0];
+    }
 
-console.log(staciakampis1);
-console.log(staciakampis2);
-console.log(staciakampis3);
+} while (laimetojas == false);
+
+// nugaletoju lentele
+const lentele = [];
+sortas(lentele);
+
+console.log(`Nugalejo ${laimetojas}`);
+console.log(lentele);
