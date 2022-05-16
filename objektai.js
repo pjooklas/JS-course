@@ -88,6 +88,7 @@ const masinos = [{
 let laimetojas = false;
 let kelias = 100;
 let komentatorius = '';
+let ratai = 1;
 
 function sortas(masyvas) {
     for (const masina of masinos) {
@@ -119,7 +120,7 @@ do {
     if (laimi[0][1] >= 1000) {
         laimetojas = laimi[0][0];
     }
-
+    console.log(ratai++);
 } while (laimetojas == false);
 
 // nugaletoju lentele
